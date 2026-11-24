@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="app">
+        <header class="header">
+            <div class="logo">✎</div>
+            <div>
+                <h1>Quick Notes</h1>
+                <p>Your thoughts, saved in one place.</p>
+            </div>
+        </header>
+
+        <section class="editor">
+            <label for="noteInput">Write a new note</label>
+            <textarea id="noteInput" placeholder="What's on your mind?"></textarea>
+            <div class="editor-footer">
+                <span id="charCount">0 characters</span>
+                <button id="saveButton">Save note <span>↗</span></button>
+            </div>
+            <p id="message" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="notes-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Your notes</h2>
+                    <p id="noteCount">Loading notes...</p>
+                </div>
+                <span class="saved-label">● Saved locally</span>
+            </div>
+            <div id="notesList" class="notes-grid"></div>
+            <p id="emptyState" class="empty-state" hidden>No notes yet. Write your first note above!</p>
+        </section>
+        <footer>Quick Notes · Simple thoughts, safely stored.</footer>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

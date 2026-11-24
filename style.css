@@ -1,0 +1,56 @@
+* { box-sizing: border-box; }
+:root {
+    --ink: #20251f; --muted: #777e75; --green: #456b50;
+    --paper: #fbfaf6; --line: #e7e8df; --accent: #eaf0e7;
+}
+body {
+    margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.app { width: min(900px, calc(100% - 36px)); margin: 52px auto 30px; }
+.header { display: flex; align-items: center; gap: 15px; margin-bottom: 34px; }
+.logo {
+    width: 48px; height: 48px; display: grid; place-items: center;
+    background: var(--green); color: white; border-radius: 14px; font-size: 27px;
+}
+h1 { margin: 0; font-size: 27px; letter-spacing: -1px; }
+.header p, .section-heading p { color: var(--muted); margin: 5px 0 0; font-size: 14px; }
+.editor {
+    padding: 23px; background: white; border: 1px solid var(--line);
+    border-radius: 18px; box-shadow: 0 8px 30px #26332108;
+}
+label { display: block; font-size: 14px; font-weight: 650; margin-bottom: 12px; }
+textarea {
+    width: 100%; min-height: 145px; resize: vertical; border: 1px solid var(--line);
+    border-radius: 12px; padding: 15px; font: inherit; line-height: 1.6;
+    outline: none; background: #fffefa;
+}
+textarea:focus { border-color: #8ba78e; box-shadow: 0 0 0 3px #456b5012; }
+.editor-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 13px; }
+#charCount { color: var(--muted); font-size: 12px; }
+button {
+    border: 0; background: var(--green); color: white; border-radius: 10px;
+    padding: 11px 17px; font-weight: 650; cursor: pointer; font-size: 14px;
+}
+button:hover { background: #35563e; }
+button:disabled { opacity: .6; cursor: wait; }
+.message { min-height: 18px; margin: 9px 0 0; font-size: 13px; color: var(--green); }
+.message.error { color: #b33b35; }
+.notes-section { margin-top: 38px; }
+.section-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 17px; }
+h2 { font-size: 19px; margin: 0; letter-spacing: -.4px; }
+.saved-label { font-size: 12px; color: var(--green); background: var(--accent); padding: 7px 10px; border-radius: 20px; }
+.notes-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.note-card { background: white; border: 1px solid var(--line); border-radius: 15px; padding: 18px; }
+.note-content { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; font-size: 14px; margin: 0 0 17px; }
+.note-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: var(--muted); font-size: 11px; }
+.delete-button { background: transparent; color: #9a514b; padding: 5px 8px; font-size: 12px; }
+.delete-button:hover { background: #fff0ee; color: #9a332b; }
+.empty-state { text-align: center; color: var(--muted); padding: 32px; border: 1px dashed #d9ddd3; border-radius: 14px; }
+footer { text-align: center; color: #9a9e95; font-size: 12px; margin-top: 45px; }
+@media (max-width: 600px) {
+    .app { margin-top: 28px; }
+    .notes-grid { grid-template-columns: 1fr; }
+    .editor { padding: 17px; }
+    .section-heading { align-items: flex-start; gap: 12px; }
+}
